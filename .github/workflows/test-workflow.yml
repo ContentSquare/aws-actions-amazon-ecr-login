@@ -16,7 +16,7 @@ jobs:
 
     - name: Print current build ID
       run: |
-        echo Integration test run: githubactionsamazonecrlogin-VM0j5Qh3DBOo:536cb300-7f4f-42de-87b3-3b22b257bd40
+        echo Integration test run: githubactionsamazonecrlogin-VM0j5Qh3DBOo:56292799-d95d-495b-9a4d-e25b8cad414c
 
     - name: Configure AWS credentials
       id: configure-aws-credentials-pdx
@@ -28,7 +28,7 @@ jobs:
 
     - name: Login to Amazon ECR
       id: login-ecr
-      uses: aws-actions/amazon-ecr-login@2f7de0068ae683c9402101824f370b7a34660ee7
+      uses: aws-actions/amazon-ecr-login@09593efd3f6cdb67e1babace25fb0c5a9e501b80
 
     - name: Tag and push a docker image to Amazon ECR
       env:
@@ -41,7 +41,7 @@ jobs:
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
     - name: Login to Amazon ECR using explicit registry ID
-      uses: aws-actions/amazon-ecr-login@2f7de0068ae683c9402101824f370b7a34660ee7
+      uses: aws-actions/amazon-ecr-login@09593efd3f6cdb67e1babace25fb0c5a9e501b80
       with:
         registries: ${{ steps.configure-aws-credentials.outputs.aws-account-id }}
 
@@ -55,7 +55,7 @@ jobs:
 
     - name: Login to Amazon ECR Public
       id: login-ecr-public
-      uses: aws-actions/amazon-ecr-login@2f7de0068ae683c9402101824f370b7a34660ee7
+      uses: aws-actions/amazon-ecr-login@09593efd3f6cdb67e1babace25fb0c5a9e501b80
       with:
         registry-type: public
 
